@@ -7,7 +7,7 @@ services:
     cap_add:
       - NET_ADMIN
     ports:
-      - 8080:8080
+      - 8082:8080
       - 51420:51420
       - 51420:51420/udp
     environment:
