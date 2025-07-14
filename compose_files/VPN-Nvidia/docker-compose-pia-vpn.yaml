@@ -101,31 +101,6 @@ services:
     ports:
       - 7878:7878
     restart: unless-stopped
-  jellyfin:
-    image: lscr.io/linuxserver/jellyfin:latest
-    container_name: jellyfin
-    environment:
-      - PUID=0
-      - PGID=0
-      - TZ=${TZ}
-      - NVIDIA_VISIBLE_DEVICES=all
-    network_mode: "host"
-    volumes:
-      - ${COMMON_PATH}:${COMMON_PATH}
-      - ${COMMON_PATH}/configs/jellyfin:/config
-      - ${COMMON_PATH}/jellyfin/cache:/cache
-      - ${COMMON_PATH}/sonarr/tv:/data/tvshows
-      - ${COMMON_PATH}/radarr/movies:/data/movies
-      - ${COMMON_PATH}/qbittorrent/downloads:/data/media_downloads
-    restart: unless-stopped
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities:
-                - gpu
   jellyseerr:
     image: fallenbagel/jellyseerr:latest
     container_name: jellyseerr
