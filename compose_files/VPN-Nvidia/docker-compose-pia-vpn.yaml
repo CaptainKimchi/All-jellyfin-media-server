@@ -36,6 +36,8 @@ services:
       - ${COMMON_PATH}/qbittorrent/downloads:/downloads
     labels:
       - traefik.http.services.qbittorrent.loadbalancer.server.port=8081
+      - traefik.http.middlewares.qbittorrent-headers.headers.customrequestheaders.X-Forwarded-Proto=https
+      - traefik.http.routers.https-0-g084cg0ww8sokcoc0soskkkg-qbittorrent.middlewares=gzip,qbittorrent-headers
     restart: unless-stopped
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
