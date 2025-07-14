@@ -34,6 +34,8 @@ services:
       - ${COMMON_PATH}:${COMMON_PATH}
       - ${COMMON_PATH}/configs/qbittorrent:/config
       - ${COMMON_PATH}/qbittorrent/downloads:/downloads
+    labels:
+      - traefik.http.services.qbittorrent.loadbalancer.server.port=8081
     restart: unless-stopped
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
