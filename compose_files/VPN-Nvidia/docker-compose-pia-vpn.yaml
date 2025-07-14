@@ -109,11 +109,7 @@ services:
       - PGID=0
       - TZ=${TZ}
       - NVIDIA_VISIBLE_DEVICES=all
-    ports:
-      - 8096:8096
-      - 8920:8920
-      - 7359:7359/udp
-      - 1900:1900/udp
+    network_mode: "host"
     volumes:
       - ${COMMON_PATH}:${COMMON_PATH}
       - ${COMMON_PATH}/configs/jellyfin:/config
