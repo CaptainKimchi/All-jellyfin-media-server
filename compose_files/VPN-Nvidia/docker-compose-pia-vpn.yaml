@@ -161,5 +161,5 @@ services:
       - /jellyfin/readarr/books:/books
       - /jellyfin/qbittorrent/downloads:/downloads
     ports:
-      - 8888:8888
+      - 8787:8787
     restart: unless-stopped
