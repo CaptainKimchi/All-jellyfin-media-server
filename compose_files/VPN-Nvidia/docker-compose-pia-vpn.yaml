@@ -148,3 +148,18 @@ services:
     volumes:
       - /jellyfin/configs/jellyseerr:/app/config
     restart: unless-stopped
+  readarr:
+    image: lscr.io/linuxserver/readarr:latest
+    container_name: readarr
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=${TZ}
+    volumes:
+      - /jellyfin:/jellyfin
+      - /jellyfin/configs/sonarr:/config
+      - /jellyfin/readarr/books:/books
+      - /jellyfin/qbittorrent/downloads:/downloads
+    ports:
+      - 8787:8787
+    restart: unless-stopped
