@@ -157,7 +157,7 @@ services:
       - TZ=${TZ}
     volumes:
       - /jellyfin:/jellyfin
-      - /jellyfin/configs/sonarr:/config
+      - /jellyfin/configs/readarr:/config
       - /jellyfin/readarr/books:/books
       - /jellyfin/qbittorrent/downloads:/downloads
     ports:
